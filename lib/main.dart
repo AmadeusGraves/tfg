@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'eventos.dart';
+import 'restaurantes.dart';
 
 void main() => runApp(MyApp());
 
@@ -38,23 +40,51 @@ class MyHomePage extends StatefulWidget {
   // always marked "final".
 
   final String title;
+  final drawerItems = [
+    new DrawerItem("Iniciar Sesion", Icons.person_add),
+    new DrawerItem("Eventos", Icons.event),
+    new DrawerItem("Restaurantes", Icons.restaurant),
+    new DrawerItem("Mi Perfil", Icons.person),
+    new DrawerItem("Agenda", Icons.view_agenda),
+    new DrawerItem("Todos los Usuarios", Icons.people),
+    new DrawerItem("Configuración", Icons.settings)
+  ];
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+   int _selectedDrawerIndex = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
+  _getDrawerItemWidget(int pos) {
+    switch (pos) {
+      case 0:
+        return 0;
+      case 1:
+        return new Eventos();
+      case 2:
+        return new Restaurantes();
+      case 3:
+        return 3;
+      case 4:
+        return 4;
+      case 5:
+        return 5;
+      case 6:
+        return 6;
+      default:
+        return new Text("Error");
+    }
+  }
+
+  _onSelectItem(int index) {
+    setState(() => _selectedDrawerIndex = index);
+    Navigator.of(context).push(
+    new MaterialPageRoute(
+      builder: (context) => _getDrawerItemWidget(index)
+    ),
+    );
   }
 
   @override
@@ -65,11 +95,27 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
+    var drawerOptions = <Widget>[];
+    for (var i = 0; i < widget.drawerItems.length; i++) {
+      var d = widget.drawerItems[i];
+      drawerOptions.add(
+        new ListTile(
+          leading: new Icon(d.icon),
+          title: new Text(d.title),
+          selected: i == _selectedDrawerIndex,
+          onTap: () => _onSelectItem(i),
+        )
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
+        actions: <Widget>[
+
+        ],
       ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
@@ -90,22 +136,25 @@ class _MyHomePageState extends State<MyHomePage> {
           // axis because Columns are vertical (the cross axis would be
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
+        ),
+      ),
+      drawer: new Drawer(
+        child: new Column(
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
+            new UserAccountsDrawerHeader(
+                accountName: new Text("None"), accountEmail: null),
+            new Column(children: drawerOptions)
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
+
+class DrawerItem {
+  String title;
+  IconData icon;
+  DrawerItem(this.title, this.icon);
+  
+}
+
