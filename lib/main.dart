@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Rest&Event',
+      title: 'Roald',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Color.fromRGBO(58, 66, 86 , 1.0),
 
       ),
-      home: MyHomePage(title: 'Rest&Event'),
+      home: MyHomePage(title: 'Roald'),
     );
   }
 }
@@ -143,7 +143,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // axis because Columns are vertical (the cross axis would be
           // horizontal)
           children: <Widget>[
-          new Text("Rest&Event", style: TextStyle(fontSize: 18, color: Color.fromRGBO(255, 255, 255, 1.0)),), 
+          new Text("Roald", style: TextStyle(fontSize: 18, color: Color.fromRGBO(255, 255, 255, 1.0)),), 
           new Text("Bienvenidos, esta App esta destinada a organizarte en cuanto al tema de intercalar eventos a los que quieres ir con restaurantes cercanos a los que puedes ir o bien antes, o despues.", textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.w300, color: Color.fromRGBO(255, 255, 255, 1.0)),)
           ],
           mainAxisAlignment: MainAxisAlignment.center,
