@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'eventos.dart';
 import 'restaurantes.dart';
+import 'agenda.dart';
 
 void main() => runApp(MyApp());
 
@@ -20,7 +21,8 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.red
+        primaryColor: Color.fromRGBO(58, 66, 86 , 1.0),
+
       ),
       home: MyHomePage(title: 'Rest&Event'),
     );
@@ -49,6 +51,7 @@ class MyHomePage extends StatefulWidget {
     new DrawerItem("Todos los Usuarios", Icons.people),
     new DrawerItem("Configuración", Icons.settings)
   ];
+  
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -68,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
       case 3:
         return 3;
       case 4:
-        return 4;
+        return new Agenda();
       case 5:
         return 5;
       case 6:
@@ -98,21 +101,25 @@ class _MyHomePageState extends State<MyHomePage> {
     var drawerOptions = <Widget>[];
     for (var i = 0; i < widget.drawerItems.length; i++) {
       var d = widget.drawerItems[i];
-      drawerOptions.add(
-        new ListTile(
-          leading: new Icon(d.icon),
-          title: new Text(d.title),
-          selected: i == _selectedDrawerIndex,
-          onTap: () => _onSelectItem(i),
-        )
-      );
+      if(1==1){ // TODO, configurar el if para que no aparezca la agenda y mi perfil cunado no se esta logeado. Para mostrar el perfil !(d.title == "Mi Perfil")
+        drawerOptions.add(
+          new ListTile(
+            leading: new Icon(d.icon),
+            title: new Text(d.title),
+            selected: i == _selectedDrawerIndex,
+            onTap: () => _onSelectItem(i),
+          )
+        );
+      }
     }
 
     return Scaffold(
+      backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
+        elevation: 0.1,
         actions: <Widget>[
 
         ],
@@ -134,7 +141,11 @@ class _MyHomePageState extends State<MyHomePage> {
           // how it positions its children. Here we use mainAxisAlignment to
           // center the children vertically; the main axis here is the vertical
           // axis because Columns are vertical (the cross axis would be
-          // horizontal).
+          // horizontal)
+          children: <Widget>[
+          new Text("Rest&Event", style: TextStyle(fontSize: 18, color: Color.fromRGBO(255, 255, 255, 1.0)),), 
+          new Text("Bienvenidos, esta App esta destinada a organizarte en cuanto al tema de intercalar eventos a los que quieres ir con restaurantes cercanos a los que puedes ir o bien antes, o despues.", textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.w300, color: Color.fromRGBO(255, 255, 255, 1.0)),)
+          ],
           mainAxisAlignment: MainAxisAlignment.center,
         ),
       ),

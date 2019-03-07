@@ -24,13 +24,22 @@ class EventosImpl extends State<Eventos>{
   Widget build(BuildContext context) {
     
     return Scaffold(
+      backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
       appBar: AppBar(
         title: Text("Eventos"),
+        elevation: 0.1,
+        actions: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(right: 16.0),
+            child: Icon(Icons.search),
+          ),
+        ],
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
+       
        currentIndex: _selectedIndex, // this will be set when a new tab is tapped
        onTap: _onItemTapped,
        items: [

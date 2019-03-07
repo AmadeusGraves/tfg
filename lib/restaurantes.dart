@@ -24,8 +24,10 @@ class RestaurantesImpl extends State<Restaurantes>{
   Widget build(BuildContext context) {
     
     return Scaffold(
+      backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
       appBar: AppBar(
         title: Text("Restaurantes"),
+        elevation: 0.1,
         
 
       ),
