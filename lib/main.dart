@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'eventos.dart';
-import 'restaurantes.dart';
-import 'agenda.dart';
+import 'package:rest_event/Views/eventos.dart';
+import 'package:rest_event/Views/restaurantes.dart';
+import 'package:rest_event/Views/agenda.dart';
+import 'package:rest_event/Views/login.dart';
 
 void main() => runApp(MyApp());
 
@@ -63,15 +64,15 @@ class _MyHomePageState extends State<MyHomePage> {
   _getDrawerItemWidget(int pos) {
     switch (pos) {
       case 0:
-        return 0;
+        return Login();
       case 1:
-        return new Eventos();
+        return Eventos();
       case 2:
-        return new Restaurantes();
+        return Restaurantes();
       case 3:
         return 3;
       case 4:
-        return new Agenda();
+        return Agenda();
       case 5:
         return 5;
       case 6:
