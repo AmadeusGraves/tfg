@@ -21,6 +21,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   sticky_headers: "^0.1.7"
   date_format: ^1.0.6
+  sqflite: ^1.1.0
 
 
 dev_dependencies:

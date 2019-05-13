@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\angel\\TFG\\rest_event\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "outputFile": "C:\\Users\\Jnd_1\\Desktop\\Repo-TFG\\tfg\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\angel\\TFG\\rest_event\\android\\app\\src\\main\\res\\values\\styles.xml",
+                    "source": "C:\\Users\\Jnd_1\\Desktop\\Repo-TFG\\tfg\\android\\app\\src\\main\\res\\values\\styles.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

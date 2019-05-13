@@ -1,4 +1,4 @@
-#Wed Dec 12 19:56:34 CET 2018
-base.0=C\:\\Users\\angel\\TFG\\rest_event\\build\\app\\intermediates\\transforms\\dexMerger\\debug\\0
+#Mon May 13 21:45:25 CEST 2019
+base.0=C\:\\Users\\Jnd_1\\Desktop\\Repo-TFG\\tfg\\build\\app\\intermediates\\transforms\\dexMerger\\debug\\0
 path.0=classes.dex
 renamed.0=classes.dex
